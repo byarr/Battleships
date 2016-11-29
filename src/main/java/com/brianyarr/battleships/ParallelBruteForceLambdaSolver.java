@@ -13,39 +13,7 @@ public class ParallelBruteForceLambdaSolver implements Solver {
                 .mapToObj(i -> new Point(i % n, i / n))
                 .filter(grid::isHit)
                 .limit(b)
-                .collect(Collector.of(MinMax::new, MinMax::accept, MinMax::accept, MinMax::toResult, Collector.Characteristics.UNORDERED));
+                .collect(Result::new, Result::addPoint, Result::addResult);
     }
-
-    private static class MinMax {
-        private Point min;
-        private Point max;
-
-       public void accept(Point p) {
-           if (min == null) {
-               min = p;
-           } else {
-               if (p.compareTo(min) < 0)  {
-                   min = p;
-               }
-           }
-           if (max == null) {
-               max = p;
-           } else if (p.compareTo(max) > 0) {
-               max = p;
-           }
-       }
-
-       public MinMax accept(MinMax other) {
-           this.accept(other.min);
-           this.accept(other.max);
-           return this;
-       }
-
-       public Result toResult() {
-           return new Result(min, max);
-       }
-
-    }
-
 
 }

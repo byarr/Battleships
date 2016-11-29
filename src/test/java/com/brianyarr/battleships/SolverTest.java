@@ -7,16 +7,16 @@ import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
 
-//@RunWith(Parameterized.class)
+@RunWith(Parameterized.class)
 public class SolverTest {
 
-    Solver solver;
-
-    @Before
-    public void init() {
-        solver = new ParallelBruteForceLambdaSolver();
+    @Parameterized.Parameters(name = "{0}")
+    public static Object[] data() {
+        return new Object[] { new BruteForceSolver(), new BruteForceLambdaSolver(), new ParallelBruteForceLambdaSolver(), new RandomSolver() };
     }
 
+    @Parameterized.Parameter
+    public Solver solver;
 
     @Test
     public void testWorks() {
