@@ -1,4 +1,9 @@
-package com.brianyarr.battleships;
+package com.brianyarr.battleships.solvers;
+
+import com.brianyarr.battleships.Grid;
+import com.brianyarr.battleships.Point;
+import com.brianyarr.battleships.Result;
+import com.brianyarr.battleships.Solver;
 
 public class BruteForceSolver implements Solver {
 

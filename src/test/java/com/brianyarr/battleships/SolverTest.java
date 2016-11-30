@@ -1,6 +1,9 @@
 package com.brianyarr.battleships;
 
-import org.junit.Before;
+import com.brianyarr.battleships.solvers.BruteForceLambdaSolver;
+import com.brianyarr.battleships.solvers.BruteForceSolver;
+import com.brianyarr.battleships.solvers.ParallelBruteForceLambdaSolver;
+import com.brianyarr.battleships.solvers.RandomSolver;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
