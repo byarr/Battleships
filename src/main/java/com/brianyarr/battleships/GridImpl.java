@@ -17,6 +17,10 @@ public class GridImpl implements Grid {
         }
     }
 
+    public Result getResult() {
+        return new Result(p1, p2);
+    }
+
     @Override
     public boolean isHit(int x, int y) {
         return x >= p1.x && x <= p2.x && y >= p1.y && y <= p2.y;

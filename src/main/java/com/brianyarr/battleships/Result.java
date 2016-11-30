@@ -20,6 +20,9 @@ public class Result {
     }
 
     public void addPoint(Point p) {
+        if (p == null) {
+            return;
+        }
         if (p1 == null || p.compareTo(p1) < -1) {
             p1 = p;
         }

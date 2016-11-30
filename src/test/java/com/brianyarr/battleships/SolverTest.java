@@ -22,15 +22,16 @@ public class SolverTest {
     public Solver solver;
 
     @Test
-    public void testWorks() {
+    public void testCornersWorks() {
         final int n = 100;
-        final Point p1 = new Point(99, 99);
-        final Point p2 = new Point(99, 99);
-        final GridImpl grid = new GridImpl(n, p1, p2);
+        final GridGenerator gridGenerator = new GridGenerator();
 
-        final Result result = solver.solve(n, 1, grid);
-        assertEquals(p1, result.p1);
-        assertEquals(p2, result.p2);
+        final GridImpl[] grids = gridGenerator.generateCorners(n, 1);
+        for(GridImpl g : grids) {
+            final Result result = solver.solve(n, 1, g);
+            assertEquals(g.getResult(), result);
+        }
+
     }
 
 }
